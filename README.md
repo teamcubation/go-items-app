@@ -1,47 +1,47 @@
-# Challenge
+# Desafio
 
-## Descripción del problema
+## Descrição do Problema
 
-En **Mercado Libre** trabajamos con `articulos` de sellers que los venden a traves de nuestro marketplace. El objetivo de este desafío es realizar una aplicación la cual exponga un _API_ que permita realizar algunas operaciones de _CRUD_ para cada una de esas dos entidades con algunas reglas de negocio sobre ellas.
+Na **Mercado Libre** trabalhamos com `itens` de vendedores que os vendem através do nosso marketplace. O objetivo deste desafio é realizar uma aplicação que exponha uma _API_ que permita realizar algumas operações de _CRUD_ para cada uma dessas duas entidades com algumas regras de negócio sobre elas.
 
-### Articulos
+### Itens
 
-Un item, tiene la información básica sobre el artículo que será anunciado por nosotros.
+Um item tem informações básicas sobre o artigo que será anunciado por nós.
 
-#### Representación de un item
+#### Representação de um Item
 
-A continuación un ejemplo de la representación _JSON_ de un item:
+A seguir, um exemplo de representação _JSON_ de um item:
 
 ```json
 {
   "id": 10,
   "code": "SAM27324354",
   "title": "Tablet Samsung Galaxy Tab S7",
-  "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 pulgadas y 4GB de memoria RAM",
+  "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 polegadas e 4GB de memória RAM",
   "price": 150000,
   "stock": 3,
-  "status": "ACTIVE"
+  "status": "ACTIVE",
   "created_at": "2020-05-10T04:20:33Z",
   "updated_at": "2020-05-10T05:30:00Z"
 }
 ```
 
-#### Reglas sobre artículos
+#### Regras sobre Itens
 
-1. Los _ids_ deben ser generados automáticamente.
-2. Los campos `code`, `title`, `description`, `price`, `stock`, `photos` son obligatórios.
-3. El campo `code` debe ser único.
-4. Los campos `status`, `created_at`, `updated_at` son automáticamente generados por el sistema. La API no debería permitir modificaciones sobre ellos.
-5. El campo `status` puede tener los siguientes valores:
+1. Os _ids_ devem ser gerados automaticamente.
+2. Os campos `code`, `title`, `description`, `price`, `stock`, `photos` são obrigatórios.
+3. O campo `code` deve ser único.
+4. Os campos `status`, `created_at`, `updated_at` são gerados automaticamente pelo sistema. A API não deve permitir modificações neles.
+5. O campo `status` pode ter os seguintes valores:
 
-- `ACTIVE`: Un item que tiene stock disponible.
-- `INACTIVE`: Un item que el valor de stock es cero (0).
+- `ACTIVE`: Um item que tem estoque disponível.
+- `INACTIVE`: Um item cujo valor de estoque é zero (0).
 
-#### Desafío
+#### Desafio
 
-Usando la siguientes estructura de `Item` permita las siguientes funcionalidades. Para crear o editar items, tenga en cuenta las reglas descritas anteriormente.
+Usando a seguinte estrutura de `Item`, permita as seguintes funcionalidades. Para criar ou editar itens, considere as regras descritas anteriormente.
 
-1. **Cree nuevos items.**
+1. **Criar novos itens.**
 
 _Request_:
 
@@ -55,7 +55,7 @@ _Body_:
 {
   "code": "SAM27324354",
   "title": "Tablet Samsung Galaxy Tab S7",
-  "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 pulgadas y 4GB de memoria RAM",
+  "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 polegadas e 4GB de memória RAM",
   "price": 150000,
   "stock": 15
 }
@@ -63,9 +63,9 @@ _Body_:
 
 _Response_:
 
-Usted define la respuesta, hace parte del desafío
+Você define a resposta, faz parte do desafio.
 
-2. **Actualice un item**
+2. **Atualizar um item**
 
 _Request_:
 
@@ -79,7 +79,7 @@ _Body_:
 {
   "code": "SAM27324354",
   "title": "Tablet Samsung Galaxy Tab S7",
-  "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 pulgadas y 4GB de memoria RAM",
+  "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 polegadas e 4GB de memória RAM",
   "price": 158000,
   "stock": 25
 }
@@ -87,11 +87,11 @@ _Body_:
 
 _Response_:
 
-Usted define la respuesta, hace parte del desafío
+Você define a resposta, faz parte do desafio.
 
-3. **Obtener un item por ID**
+3. **Obter um item por ID**
 
-Retorna el item correspondiente al _ID_.
+Retorna o item correspondente ao _ID_.
 
 _Request_:
 
@@ -101,11 +101,11 @@ GET v1/items/{id}
 
 _Response_:
 
-Usted define la respuesta, hace parte del desafío
+Você define a resposta, faz parte do desafio.
 
-4. **Eliminar Item**
+4. **Excluir Item**
 
-Elimina el item correspondiente al _ID_.
+Exclui o item correspondente ao _ID_.
 
 _Request_:
 
@@ -115,11 +115,11 @@ DELETE v1/items/{id}
 
 _Response_:
 
-Usted define la respuesta, hace parte del desafío
+Você define a resposta, faz parte do desafio.
 
-5. **Obtener todos los items (opcional: permitir filtrado por _Status_)**
+5. **Obter todos os itens (opcional: permitir filtragem por _Status_)**
 
-Retorna los items filtrados por _Status_ (opcional). Los resultados vienen organizados por fecha de actualización del más reciente al más antiguo. Debe dar la opción al usuario de poner un límite de resultados a la busqueda.
+Retorna os itens filtrados por _Status_ (opcional). Os resultados vêm organizados por data de atualização, do mais recente ao mais antigo. Deve dar a opção ao usuário de definir um limite de resultados na busca.
 
 _Request_:
 
@@ -127,22 +127,22 @@ _Request_:
 GET v1/items?status={status}&limit={limit}
 ```
 
-Donde:
+Onde:
 
-- `status`: Es el filtro por el estado del item; es un parámetro opcional:
+- `status`: É o filtro pelo estado do item; é um parâmetro opcional:
 
-  - `No esta especificado`: Retorna todos los items sin importar su valor en el campo el estado
-  - `ACTIVE`: Retorne los items activos
-  - `INACTIVE`: Retorne los items inactivos
+  - `Não especificado`: Retorna todos os itens, independentemente do valor do campo de estado
+  - `ACTIVE`: Retorna os itens ativos
+  - `INACTIVE`: Retorna os itens inativos
 
-- `limit`: Es el tamaño solicitado de resultados en la página. Es un parámetro opcional, su valor default es 10, y su valor máximo es 20.
+- `limit`: É o tamanho solicitado de resultados na página. É um parâmetro opcional, com valor padrão de 10, e valor máximo de 20.
 
 _Response_:
 
-La respuesta debe seguir la siguiente estructura de campos:
+A resposta deve seguir a seguinte estrutura de campos:
 
-- `totalPages`: El número total de items que contienen resultados para la búsqueda hecha.
-- `data`: Un array con los objetos conteniendo los items solicitados en el request.
+- `totalPages`: O número total de itens que contêm resultados para a busca feita.
+- `data`: Um array com os objetos contendo os itens solicitados no request.
 
 ```json
 {
@@ -152,10 +152,10 @@ La respuesta debe seguir la siguiente estructura de campos:
     "id": 10,
     "code": "SAM27324354",
     "title": "Tablet Samsung Galaxy Tab S7",
-    "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 pulgadas y 4GB de memoria RAM",
+    "description": "Galaxy Tab S7 with S Pen SM-t733 12.4 polegadas e 4GB de memória RAM",
     "price": 150000,
     "stock": 3,
-    "status": "ACTIVE"
+    "status": "ACTIVE",
     "created_at": "2020-05-10T04:20:33Z",
     "updated_at": "2020-05-10T05:30:00Z"
     }
@@ -163,18 +163,18 @@ La respuesta debe seguir la siguiente estructura de campos:
 }
 ```
 
-## Criterios de calificación
+## Critérios de Avaliação
 
-Esperamos que el código que usted va a crear sea considerado por usted como _"Production Ready"_; por favor use las buenas prácticas a las cuáles usted está acostumbrado en su rutina de desarrollo de código.
+Esperamos que o código que você vai criar seja considerado por você como _"Pronto para Produção"_; por favor, use as boas práticas às quais você está acostumado em sua rotina de desenvolvimento de código.
 
-Para la evaluación de su código, esperamos que su código sea portable. Esperamos que usted nos provea un comando para correr fácilmente en el ambiente local, la solución del problema.
+Para a avaliação do seu código, esperamos que seja portátil. Esperamos que você nos forneça um comando para rodar facilmente no ambiente local a solução do problema.
 
-Para el desarrollo del desafío vamos a utilizar Golang como lenguaje.
+Para o desenvolvimento do desafio, vamos utilizar Golang como linguagem.
 
-Dentro de los criterios que vamos a tener en cuenta a la hora de revisar su código, revisaremos:
+Dentro dos critérios que vamos considerar ao revisar seu código, avaliaremos:
 
-- Resuelve el problema propuesto
-- Organización y estructura del proyecto
-- Mantenibilidad
-- Facilidad para hacer tests
-- Valoraremos adicionalmente si usa alguna arquitectura limpia (ej. arquitectura hexagonal).
+- Resolve o problema proposto
+- Organização e estrutura do projeto
+- Manutenibilidade
+- Facilidade para fazer testes
+- Valorizaremos adicionalmente se usar alguma arquitetura limpa (ex. arquitetura hexagonal).
